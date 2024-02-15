@@ -3,3 +3,4 @@
 seen.txt
 rss.xml
 .env
+**.pyc

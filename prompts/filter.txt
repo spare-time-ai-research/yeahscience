@@ -3,15 +3,17 @@ Here is a list of RSS feed entries in JSON format:
 {{entries}}
 
 Here is a list of topics I am interested in:
-* LLM Architecture
-* LLM Inference
-* New Large Language Models
-* RAG
+* Large Language Models
 * Retrieval Augmented Generation
 * Agent Systems
+* Conversational Agents
+* Multi-Agent Systems
 * Transformer Architecture
 * Neural Network Architecture
 * Natural Language Processing
+* Artificial General Intelligence
+* AI Security
+* Consciousness
 
 Here's a list of topics I am NOT interested in:
 * Image Processing
@@ -22,17 +24,20 @@ Here's a list of topics I am NOT interested in:
 
 Filter entries to only include results that are related to topics I am interested in, that seem to be innovative,
 give new insights and touch challenging areas of the topic.
-Skip entries that look like questions or discussions.
+Skip entries that look like questions.
 Skip entries that are related to topics I am not interested in.
 
 Return a JSON object with 'entries' attribute, containing a list of relevant entries.
-Every item should contain a link and a topic it relates to. Example of a resulting JSON object:
+Every entry should contain a link, a title and a topic it relates to. Retain link and title from the original list of
+entries, you are only allowed to set the topic for each entry.
+
+Example of a resulting JSON object:
 
 ```
 {
     "entries": [
         {"link": "http://arxiv.org/abs/2401.001001", "title": "Large language models: a survey of approaches", "topic": "Large Language Models"},
-        {"link": "http://arxiv.org/abs/2401.001002", "title": "Novel neural network architecture", "topic": "Neural Networks"}
+        {"link": "http://arxiv.org/abs/2401.001002", "title": "Novel neural network architecture", "topic": "Neural Network Architecture"}
     ]
 }
 ```

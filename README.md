@@ -21,7 +21,7 @@ The algorithm is simple:
 1. The project is configured via environment variables. The following variables are
 required:
    - `OPENAI_API_KEY` - a key for OpenAI API
-   - `FEED_URLS` - a comma-separated list of RSS feed URLs to update
+   - `FEED_URLS` - a comma-separated list of RSS feed URLs to fetch 
 2. Prompts are defined within `prompts` directory, you might want to customize them. 
 Each prompt is a file with a single prompt. The name of the file is used as a name of 
 3. the prompt:
