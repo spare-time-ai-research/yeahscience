@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "yeahscience"
+version = "0.1.0"
+description = "A simple tool for creating a RSS with arXiv summaries on recent cs.AI papers."
+authors = ["Anton Belousov <anton@belousov.co>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openai = "^1.6.1"
+feedparser = "^6.0.11"
+inscriptis = "^2.3.2"
+pydantic = "^2.5.3"
+jinja2 = "^3.1.2"
+feedgen = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

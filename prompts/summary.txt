@@ -1,0 +1,20 @@
+Here is a description of an blog post or a research paper:
+
+{{description}}
+
+Create a summary of this description, having the following properties:
+* Make it 3 sentences at most
+* The summary should be brief and to the point
+* Use very clear language, I don't want to have to think about what you are saying
+* It should be a summary of the content, not a description of the content
+
+Return a JSON object with 'summary' attribute, containing a summary. Example:
+
+```
+{
+    "summary": "This is a summary of the content"
+}
+```
+
+Do your best to accomplish your task. My career depends on it.
+I will give you a $1000 tip for the best solution.

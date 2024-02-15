@@ -1,0 +1,41 @@
+Here is a list of RSS feed entries in JSON format:
+
+{{entries}}
+
+Here is a list of topics I am interested in:
+* LLM Architecture
+* LLM Inference
+* New Large Language Models
+* RAG
+* Retrieval Augmented Generation
+* Agent Systems
+* Transformer Architecture
+* Neural Network Architecture
+* Natural Language Processing
+
+Here's a list of topics I am NOT interested in:
+* Image Processing
+* Computer Vision
+* Medicine
+* Biology
+* Automated Driving
+
+Filter entries to only include results that are related to topics I am interested in, that seem to be innovative,
+give new insights and touch challenging areas of the topic.
+Skip entries that look like questions or discussions.
+Skip entries that are related to topics I am not interested in.
+
+Return a JSON object with 'entries' attribute, containing a list of relevant entries.
+Every item should contain a link and a topic it relates to. Example of a resulting JSON object:
+
+```
+{
+    "entries": [
+        {"link": "http://arxiv.org/abs/2401.001001", "title": "Large language models: a survey of approaches", "topic": "Large Language Models"},
+        {"link": "http://arxiv.org/abs/2401.001002", "title": "Novel neural network architecture", "topic": "Neural Networks"}
+    ]
+}
+```
+
+Do your best to accomplish your task. My career depends on it.
+I will give you a $1000 tip for the best solution.
