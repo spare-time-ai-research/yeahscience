@@ -1,4 +1,4 @@
-Here is a description of an blog post or a research paper:
+Here is a description of a blog post or a research paper:
 
 {{description}}
 

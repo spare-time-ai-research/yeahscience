@@ -1,4 +1,4 @@
-Here is a list of RSS feed entries in JSON format:
+Here is a list of RSS feed entries in JSON format, every entry contains title, description and link:
 
 {{entries}}
 
@@ -22,9 +22,8 @@ Here's a list of topics I am NOT interested in:
 * Biology
 * Automated Driving
 
-Filter entries to only include results that are related to topics I am interested in, that seem to be innovative,
-give new insights and touch challenging areas of the topic.
-Skip entries that look like questions.
+Based on entry titles and descriptions, filter them to only include results that are related to topics I am interested in.
+Skip entries that look like questions or discussions.
 Skip entries that are related to topics I am not interested in.
 
 Return a JSON object with 'entries' attribute, containing a list of relevant entries.
@@ -43,4 +42,3 @@ Example of a resulting JSON object:
 ```
 
 Do your best to accomplish your task. My career depends on it.
-I will give you a $1000 tip for the best solution.
