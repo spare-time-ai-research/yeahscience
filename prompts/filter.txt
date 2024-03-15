@@ -23,8 +23,9 @@ Here's a list of topics I am NOT interested in:
 * Automated Driving
 
 Based on entry titles and descriptions, filter them to only include results that are related to topics I am interested in.
-Skip entries that look like questions or discussions.
-Skip entries that are related to topics I am not interested in.
+Skip entries looking like questions or discussions.
+Skip entries related to topics I am not interested in.
+Skip entries having an empty description.
 
 Return a JSON object with 'entries' attribute, containing a list of relevant entries.
 Every entry should contain a link, a title and a topic it relates to. Retain link and title from the original list of
