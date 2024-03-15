@@ -5,6 +5,6 @@ do
     echo "Running app..."
     python main.py
 
-    echo "Sleeping for 3 hours..."
-    sleep 10800
+    echo "Sleeping for 12 hours..."
+    sleep 43200
 done
