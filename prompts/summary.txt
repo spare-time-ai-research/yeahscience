@@ -11,11 +11,13 @@ Create a summary of this description, having the following properties:
 * Skip introduction words like "This paper introduces", "The article describes", etc
 * The summary should be very brief and use a clear language
 
-Return just a summary text. Example:
+Return a JSON object with 'summary' attribute, containing a summary. Example:
 
 ###
 
-This is a content summary.
+{
+    "summary": "This is a summary of the content"
+}
 
 ###
 
