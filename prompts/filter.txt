@@ -1,31 +1,22 @@
-Here is a list of RSS feed entries in JSON format, every entry contains title, description and link:
+Here is a JSON list of RSS feed entries in JSON format, every entry contains title, description and link:
+
+###
 
 {{entries}}
 
-Here is a list of topics I am interested in:
-* Large Language Models
+###
+
+Based on entry titles and descriptions, filter them to only include results that are related to these topics:
 * Retrieval Augmented Generation
 * Agent Systems
-* Conversational Agents
-* Multi-Agent Systems
-* Transformer Architecture
 * Neural Network Architecture
 * Natural Language Processing
 * Artificial General Intelligence
-* AI Security
-* Consciousness
+* Artificial Intelligence Security
+* Artificial Consciousness
 
-Here's a list of topics I am NOT interested in:
-* Image Processing
-* Computer Vision
-* Medicine
-* Biology
-* Automated Driving
-
-Based on entry titles and descriptions, filter them to only include results that are related to topics I am interested in.
-Skip entries looking like questions or discussions.
-Skip entries related to topics I am not interested in.
-Skip entries having an empty description.
+Make sure you are 100% confident in the topic, otherwise skip the entry.
+Skip entries not related to topics I am not interested in or having an empty description.
 
 Return a JSON object with 'entries' attribute, containing a list of relevant entries.
 Every entry should contain a link, a title and a topic it relates to. Retain link and title from the original list of
@@ -33,13 +24,15 @@ entries, you are only allowed to set the topic for each entry.
 
 Example of a resulting JSON object:
 
-```
+###
+
 {
     "entries": [
         {"link": "http://arxiv.org/abs/2401.001001", "title": "Large language models: a survey of approaches", "topic": "Large Language Models"},
         {"link": "http://arxiv.org/abs/2401.001002", "title": "Novel neural network architecture", "topic": "Neural Network Architecture"}
     ]
 }
-```
+
+###
 
 Do your best to accomplish your task. My career depends on it.

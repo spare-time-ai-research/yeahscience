@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 class Entry(BaseModel):
     """Entry"""
+
     title: str
     link: str
     description: Optional[str]
@@ -16,16 +17,20 @@ class Entry(BaseModel):
 
 class FilterResponseEntry(BaseModel):
     """Response entry"""
+
     title: str
     link: str
     topic: str
 
     def __repr__(self):
-        return f"ResponseEntry(link={self.link}, title={self.title}, topic={self.topic})"
+        return (
+            f"ResponseEntry(link={self.link}, title={self.title}, topic={self.topic})"
+        )
 
 
 class AiFilterResponse(BaseModel):
     """AI response"""
+
     entries: list[FilterResponseEntry]
 
     def __repr__(self):
@@ -34,6 +39,7 @@ class AiFilterResponse(BaseModel):
 
 class AiSummaryResponse(BaseModel):
     """AI summary response"""
+
     summary: str
 
     def __repr__(self):

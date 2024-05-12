@@ -1,31 +1,32 @@
-from json import loads, dumps
+from json import dumps, loads
+from logging import config, getLogger
 from os import environ, path
 from re import sub
 from typing import Generator
-from logging import getLogger, config
-from feedgen.feed import FeedGenerator
 
 import feedparser
 import openai
+from feedgen.feed import FeedGenerator
 from feedparser import FeedParserDict
 from inscriptis import get_text
+from jinja2 import Environment, FileSystemLoader, Template, select_autoescape
 from openai.types.chat import ChatCompletion
 from openai.types.chat.completion_create_params import ResponseFormat
-from jinja2 import Environment, FileSystemLoader, select_autoescape, Template
+from pydantic import ValidationError
 
+from yeahscience.log import LOGGING_CONFIG
 from yeahscience.model import (
-    Entry,
-    FilterResponseEntry,
     AiFilterResponse,
     AiSummaryResponse,
+    Entry,
+    FilterResponseEntry,
 )
-from yeahscience.log import LOGGING_CONFIG
 
-MODEL = "gpt-4-1106-preview"
+MODEL = "gpt-4-turbo"
 BATCH_SIZE = int(environ.get("BATCH_SIZE", 10))
 FEED_URLS = environ.get(
     "FEED_URLS",
-    "https://export.arxiv.org/rss/cs.AI,https://www.reddit.com/r/LocalLLaMA/.rss",
+    "https://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=lastUpdatedDate&sortOrder=descending&max_results=200,https://www.reddit.com/r/LocalLLaMA/.rss",
 ).split(",")
 OPENAI_API_KEY = environ.get("OPENAI_API_KEY")
 SEEN_CACHE_FILE = "rss/seen.txt"
@@ -157,12 +158,19 @@ def get_summary(entry: Entry, template: Template) -> str:
         response_format=ResponseFormat(type="json_object"),
     )
 
-    summary_response: AiSummaryResponse = AiSummaryResponse(
-        **loads(completion.choices[0].message.content)
-    )
-    logger.debug("get_summary, summary_response=%s", summary_response)
+    summary: str = ""
+    response_text: str = completion.choices[0].message.content
+    logger.debug("get_summary, response_text=%s", response_text)
 
-    return summary_response.summary
+    try:
+        summary_response: AiSummaryResponse = AiSummaryResponse(**loads(response_text))
+        summary = summary_response.summary
+    except ValidationError as e:
+        logger.error("get_summary, error=%s", e)
+
+    logger.debug("get_summary, summary=%s", summary)
+
+    return summary
 
 
 def generate_rss_feed(entries: list[Entry]):
@@ -177,7 +185,9 @@ def generate_rss_feed(entries: list[Entry]):
     fg.description("Yeah Science: arXiv and Reddit/LocalLLaMA overview")
 
     for entry in entries:
-        logger.info("generate_rss_feed, link=%s, description=%s", entry.link, entry.description)
+        logger.info(
+            "generate_rss_feed, link=%s, description=%s", entry.link, entry.description
+        )
         fe = fg.add_entry()
         fe.id(entry.link)
         fe.title(entry.title)

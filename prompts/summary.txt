@@ -1,20 +1,22 @@
 Here is a description of a blog post or a research paper:
 
+###
+
 {{description}}
 
+###
+
 Create a summary of this description, having the following properties:
-* Make it 3 sentences at most
-* The summary should be brief and to the point
-* Use very clear language, I don't want to have to think about what you are saying
-* It should be a summary of the content, not a description of the content
+* Keep the length within 1-3 sentences, up to 5 words each
+* Skip introduction words like "This paper introduces", "The article describes", etc
+* The summary should be very brief and use a clear language
 
-Return a JSON object with 'summary' attribute, containing a summary. Example:
+Return just a summary text. Example:
 
-```
-{
-    "summary": "This is a summary of the content"
-}
-```
+###
+
+This is a content summary.
+
+###
 
 Do your best to accomplish your task. My career depends on it.
-I will give you a $1000 tip for the best solution.

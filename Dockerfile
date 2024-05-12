@@ -54,7 +54,7 @@ FROM base AS app
 # Environment variables
 ENV FEED_URLS=""
 ENV OPENAI_API_KEY=""
-ENV BATCH_SIZE="100"
+ENV BATCH_SIZE="10"
 
 COPY --from=app-builder $PYSETUP_PATH $PYSETUP_PATH
 COPY . /app/
